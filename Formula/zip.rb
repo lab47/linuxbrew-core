@@ -44,6 +44,9 @@ class Zip < Formula
   end
 
   def install
+    if OS.mac?
+      system "make", "-f", "unix/Makefile", "CC=#{ENV.cc} -Wno-implicit-function-declaration", "flags"
+    end
     system "make", "-f", "unix/Makefile", "CC=#{ENV.cc}", "generic"
     system "make", "-f", "unix/Makefile", "BINDIR=#{bin}", "MANDIR=#{man1}", "install"
   end
