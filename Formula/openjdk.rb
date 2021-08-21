@@ -4,8 +4,8 @@ class Openjdk < Formula
   if Hardware::CPU.arm?
     # Temporarily use a openjdk 17 preview on Apple Silicon
     # (because it is better than nothing)
-    url "https://github.com/openjdk/jdk/archive/refs/tags/jdk-17+24.tar.gz"
-    sha256 "9d1ea3fc63ce860e55a9be77f670b18fa7b7e5c9773dca3c70042403e1ee285c"
+    url "https://github.com/openjdk/jdk/archive/refs/tags/jdk-17+31.tar.gz"
+    sha256 "9a658a42b2fe3b64ef3b2617395fc8f442f046e43e52b1d3b3a6a9b83d32b2ce"
     version "16.0.1"
   else
     url "https://github.com/openjdk/jdk16u/archive/refs/tags/jdk-16.0.1-ga.tar.gz"
@@ -53,8 +53,8 @@ class Openjdk < Formula
   resource "boot-jdk" do
     on_macos do
       if Hardware::CPU.arm?
-        url "https://download.java.net/java/early_access/jdk17/24/GPL/openjdk-17-ea+24_macos-aarch64_bin.tar.gz"
-        sha256 "176ab64ad860e363428ce3e4b23e8207576f8a65a567761475281cda25887640"
+        url "https://download.java.net/java/GA/jdk17/0d483333a00540d886896bac774ff48b/35/GPL/openjdk-17_macos-aarch64_bin.tar.gz"
+        sha256 "b5bf6377aabdc935bd72b36c494e178b12186b0e1f4be50f35134daa33bda052"
       else
         url "https://download.java.net/java/GA/jdk15.0.2/0d1cfde4252546c6931946de8db48ee2/7/GPL/openjdk-15.0.2_osx-x64_bin.tar.gz"
         sha256 "578b17748f5a7d111474bc4c9b5a8a06b4a4aa1ba4a4bc3fef014e079ece7c74"
@@ -81,11 +81,11 @@ class Openjdk < Formula
       --with-debug-level=release
       --with-jvm-variants=server
       --with-native-debug-symbols=none
-      --with-vendor-bug-url=#{tap.issues_url}
-      --with-vendor-name=#{tap.user}
-      --with-vendor-url=#{tap.issues_url}
-      --with-vendor-version-string=#{tap.user}
-      --with-vendor-vm-bug-url=#{tap.issues_url}
+      --with-vendor-bug-url=https://github.com/lab47/aperture-packages
+      --with-vendor-name=lab47
+      --with-vendor-url=https://github.com/lab47/aperture-packages
+      --with-vendor-version-string=lab47
+      --with-vendor-vm-bug-url=https://github.com/lab47/aperture-packages
       --with-version-build=#{revision}
       --without-version-opt
       --without-version-pre
